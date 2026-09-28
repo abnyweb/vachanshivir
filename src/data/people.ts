@@ -1,0 +1,68 @@
+import type { Speaker } from '../types';
+import { CURRENT_EVENT_ID } from './eventData';
+
+export const SPEAKER_POLICY_NOTE =
+  'At Vachan Shivir, our focus is centered squarely on the faithful exposition of God\'s Word. We invite experienced, biblically qualified teachers and leaders committed to handling the scriptures with reverence, clarity, and depth.';
+
+export const speakers: Speaker[] = [
+  {
+    id: 'spk-1',
+    eventId: CURRENT_EVENT_ID,
+    name: 'Dr. Ramesh Kumar',
+    designation: 'Expository Preacher & Author',
+    organisation: 'Grace Bible Fellowship',
+    country: 'India',
+    bio: 'Dr. Ramesh Kumar has served over 25 years in expository preaching, pastoral training, and writing.',
+    photo: null,
+    topic: '1 Peter Expositions',
+    sessionId: 'ses-d1-2',
+    category: 'main-session',
+    displayOrder: 1,
+    status: 'published',
+  },
+  {
+    id: 'spk-2',
+    eventId: CURRENT_EVENT_ID,
+    name: 'Pastor Thomas Varghese',
+    designation: 'Senior Minister & Scholar',
+    organisation: 'New Life Assembly',
+    country: 'India',
+    bio: 'Pastor Thomas is dedicated to biblical training, discipleship, and ministry mentorship across South Asia.',
+    photo: null,
+    topic: 'Biblical Discipleship',
+    sessionId: 'ses-d2-1',
+    category: 'main-session',
+    displayOrder: 2,
+    status: 'published',
+  },
+  {
+    id: 'spk-3',
+    eventId: CURRENT_EVENT_ID,
+    name: 'Rev. Jonathan Roy',
+    designation: 'Ministry Leader & Speaker',
+    organisation: 'Calvary Word Center',
+    country: 'India',
+    bio: 'Rev. Jonathan leads youth expository workshops and national leadership retreats.',
+    photo: null,
+    topic: 'Youth Ministry & Leadership',
+    sessionId: 'ses-d2-2',
+    category: 'workshop',
+    displayOrder: 3,
+    status: 'published',
+  },
+  {
+    id: 'spk-4',
+    eventId: CURRENT_EVENT_ID,
+    name: 'Dr. Samuel Philemon',
+    designation: 'Theological Educator',
+    organisation: 'Evangelical Theological College',
+    country: 'India',
+    bio: 'Dr. Samuel specializes in New Testament exposition and church history.',
+    photo: null,
+    topic: 'Exposition & Hermeneutics',
+    sessionId: 'ses-d3-1',
+    category: 'main-session',
+    displayOrder: 4,
+    status: 'published',
+  },
+];

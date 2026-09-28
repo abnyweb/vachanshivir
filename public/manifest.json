@@ -1,0 +1,21 @@
+{
+  "short_name": "Vachan Shivir",
+  "name": "Vachan Shivir 2026 — Annual Expository Retreat",
+  "icons": [
+    {
+      "src": "/assets/hero-aipc-900.webp",
+      "type": "image/webp",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/hero-aipc-900.webp",
+      "type": "image/webp",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0B0F19",
+  "theme_color": "#0B0F19",
+  "display": "standalone",
+  "orientation": "portrait"
+}

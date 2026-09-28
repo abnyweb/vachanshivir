@@ -1,0 +1,56 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Route API endpoints directly to PHP backend handlers
+  RewriteRule ^api/events/?$ api/events.php [L,QSA]
+  RewriteRule ^api/enquiries/?$ api/enquiries.php [L,QSA]
+  RewriteRule ^api/create-order/?$ api/create-order.php [L,QSA]
+  RewriteRule ^api/verify-payment/?$ api/verify-payment.php [L,QSA]
+  RewriteRule ^api/registrations(/.*)?$ api/registrations.php [L,QSA]
+  RewriteRule ^api/snapshot/?$ api/snapshot.php [L,QSA]
+  RewriteRule ^api/sync/?$ api/sync.php [L,QSA]
+  RewriteRule ^api/auth/login/?$ api/auth.php?action=login [L,QSA]
+  RewriteRule ^api/auth/google/?$ api/auth.php?action=google [L,QSA]
+  RewriteRule ^api/auth/forgot-password/?$ api/auth.php?action=forgot-password [L,QSA]
+  RewriteRule ^api/auth/reset-password/?$ api/auth.php?action=reset-password [L,QSA]
+  RewriteRule ^api/auth/me/?$ api/auth.php?action=me [L,QSA]
+  RewriteRule ^api/auth(/.*)?$ api/auth.php [L,QSA]
+  RewriteRule ^api/my-registration/?$ api/auth.php?action=my-registration [L,QSA]
+  RewriteRule ^api/payments/razorpay/webhook/?$ api/webhook.php [L,QSA]
+  RewriteRule ^api/webhooks/razorpay/?$ api/webhook.php [L,QSA]
+  RewriteRule ^api/webhook/?$ api/webhook.php [L,QSA]
+  RewriteRule ^api/send-email/?$ api/send-email.php [L,QSA]
+
+  # Direct all non-file/non-directory requests to index.html for client-side routing
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=(self)"
+
+  # Prevent caching of index.html so users always get the latest version
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+</IfModule>
+
+# Block access to sensitive or configuration files
+<FilesMatch "^(\.env.*|\.git.*|package\.json|package-lock\.json)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>

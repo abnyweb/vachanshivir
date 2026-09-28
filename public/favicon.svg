@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <!-- Soft shadow for emblem depth -->
+    <filter id="vs-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0B1D33" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Deep Navy Rounded Pill Container matching User Reference Image -->
+  <rect 
+    x="6" 
+    y="6" 
+    width="108" 
+    height="108" 
+    rx="34" 
+    ry="34" 
+    fill="#0B1D33" 
+    stroke="#FBB33B" 
+    stroke-width="7" 
+    filter="url(#vs-shadow)"
+  />
+
+  <!-- Bold, High-Impact VS Typography -->
+  <text 
+    x="60" 
+    y="76" 
+    font-family="'Raleway', 'Plus Jakarta Sans', 'Montserrat', Arial, sans-serif" 
+    font-size="52" 
+    font-weight="900" 
+    font-style="italic" 
+    letter-spacing="-1.5" 
+    fill="#FBB33B" 
+    text-anchor="middle"
+  >VS</text>
+</svg>
